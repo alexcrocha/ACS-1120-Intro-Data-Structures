@@ -11,7 +11,7 @@ def generate_random_sentence(word_number):
     with open("/usr/share/dict/words") as f:
         words = f.read().split()
 
-    random_words = random.choices(words, k=word_number)
+    random_words = random.sample(words, k=word_number)
     return " ".join(random_words).capitalize() + "."
 
 
