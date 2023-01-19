@@ -27,10 +27,11 @@ def frequency(word, histogram):
     Takes a word and histogram argument and returns the number of times that word appears in a text.
 
     """
-    pass
+    return histogram[word]
 
 
 if __name__ == "__main__":
     my_histogram = histogram(sentence)
     print(my_histogram)
     print(unique_words(my_histogram))
+    print(frequency('fish', my_histogram))
