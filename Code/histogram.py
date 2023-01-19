@@ -1,12 +1,9 @@
 import re
 
-sentence = "one fish two fish red fish blue fish"
-
 
 def histogram(source_text):
     """
-    Takes a source_text argument (can be either a filename or the contents of the file as a string, your choice)
-    and returns a histogram of all words and the number of times they appear.
+    Takes a source_text argument and returns a histogram of all words and the number of times they appear.
     """
     histogram = {}
     list_of_words = re.findall(r"\w+", source_text.lower())
@@ -17,7 +14,7 @@ def histogram(source_text):
 
 def unique_words(histogram):
     """
-    That takes a histogram argument and returns the total count of unique words in the histogram.
+    Takes a histogram argument and returns the total count of unique words in the histogram.
 
     """
     return len(histogram)
@@ -32,6 +29,7 @@ def frequency(word, histogram):
 
 
 if __name__ == "__main__":
+    sentence = "one fish two fish red fish blue fish"
     my_histogram = histogram(sentence)
     print(my_histogram)
     print(unique_words(my_histogram))
