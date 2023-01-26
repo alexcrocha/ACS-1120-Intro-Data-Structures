@@ -3,7 +3,7 @@ from histogram import dictogram
 
 def generate_word(source_text):
     """
-    Generates a random word from the given sentence
+    Generates a random word from the given text
     """
     words_histogram = dictogram(source_text)
     # pick a random word from the histogram weighted by frequency
@@ -16,6 +16,9 @@ def generate_word(source_text):
     return random_word
 
 def generate_sentence(source_text, number):
+    """
+    Generates a random sentence from the given text and word count number
+    """
     word_list = []
     for _ in range(number):
         word_list.append(generate_word(source_text))

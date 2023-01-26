@@ -1,5 +1,5 @@
 """Main script, uses other modules to generate sentences."""
-from flask import Flask
+from flask import Flask, request, render_template
 from sample import generate_sentence
 
 app = Flask(__name__)
@@ -12,8 +12,13 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     """Route that returns a web page containing the generated text."""
-    sentence = generate_sentence('./data/volcanoes.txt', 20)
-    return f"<p>{sentence}</p>"
+    num_of_words = int(request.args.get("num"))
+
+    context = {
+        'sentence': generate_sentence('./data/volcanoes.txt', num_of_words)
+    }
+
+    return render_template('index.html', **context)
 
 
 if __name__ == "__main__":
