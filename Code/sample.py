@@ -1,11 +1,11 @@
 import random
-from histogram import histogram
+from histogram import dictogram
 
-def generate_word(sentence):
+def generate_word(source_text):
     """
     Generates a random word from the given sentence
     """
-    words_histogram = histogram(sentence)
+    words_histogram = dictogram(source_text)
     # pick a random word from the histogram weighted by frequency
     random_word = random.choices(
         list(words_histogram.keys()),
@@ -15,9 +15,15 @@ def generate_word(sentence):
 
     return random_word
 
+def generate_sentence(source_text, number):
+    word_list = []
+    for _ in range(number):
+        word_list.append(generate_word(source_text))
+    return " ".join(word_list).capitalize() + "."
+
 
 if __name__ == "__main__":
-    sentence = "one fish two fish red fish blue fish"
+    sentence = "./data/volcanoes.txt"
     words_frequency = {}
     for _ in range(10000):
         generated_word = generate_word(sentence)

@@ -1,12 +1,13 @@
 import re
+from helper_functions import read_file
 
 
-def histogram(source_text):
+def dictogram(source_text):
     """
     Takes a source_text argument and returns a histogram of all words and the number of times they appear.
     """
     histogram = {}
-    list_of_words = re.findall(r"\w+", source_text.lower())
+    list_of_words = read_file(source_text)
     for word in list_of_words:
         histogram[word] = list_of_words.count(word)
     return histogram
@@ -17,7 +18,7 @@ def listogram(source_text):
     Takes a source_text argument and returns a histogram of all words and the number of times they appear.
     """
     listogram = []
-    list_of_words = re.findall(r"\w+", source_text.lower())
+    list_of_words = read_file(source_text)
     helper_list = []
     for word in list_of_words:
         if word not in helper_list:
@@ -48,8 +49,8 @@ def frequency(word, histogram):
 
 
 if __name__ == "__main__":
-    sentence = "one fish two fish red fish blue fish"
-    my_histogram = histogram(sentence)
+    sentence = "./data/volcanoes.txt"
+    my_histogram = dictogram(sentence)
     my_listogram = listogram(sentence)
     print(my_histogram)
     print(unique_words(my_histogram))
