@@ -49,12 +49,12 @@ def frequency(word, histogram):
 
 
 if __name__ == "__main__":
-    sentence = "./data/volcanoes.txt"
+    sentence = "./data/sample.txt"
     my_histogram = dictogram(sentence)
     my_listogram = listogram(sentence)
     print(my_histogram)
     print(unique_words(my_histogram))
-    print(frequency("fish", my_histogram))
+    print(frequency("volcano", my_histogram))
     print(my_listogram)
     print(unique_words(my_listogram))
-    print(frequency("fish", my_listogram))
+    print(frequency("volcano", my_listogram))

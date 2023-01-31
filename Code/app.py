@@ -15,7 +15,7 @@ def home():
     num_of_words = int(request.args.get("num"))
 
     context = {
-        'sentence': generate_sentence('./data/volcanoes.txt', num_of_words)
+        'sentence': generate_sentence('./data/sample.txt', num_of_words)
     }
 
     return render_template('index.html', **context)

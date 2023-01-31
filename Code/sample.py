@@ -26,7 +26,7 @@ def generate_sentence(source_text, number):
 
 
 if __name__ == "__main__":
-    sentence = "./data/volcanoes.txt"
+    sentence = "./data/sample.txt"
     words_frequency = {}
     for _ in range(10000):
         generated_word = generate_word(sentence)
