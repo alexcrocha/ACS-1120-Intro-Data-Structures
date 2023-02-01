@@ -1,19 +1,28 @@
 import random
 from histogram import dictogram
+from helper_functions import read_file
+
+words_histogram = {}
+
 
 def generate_word(source_text):
     """
     Generates a random word from the given text
     """
-    words_histogram = dictogram(source_text)
+    words_histogram["filled"] = (
+        dictogram(source_text)
+        if len(words_histogram) == 0
+        else words_histogram["filled"]
+    )
     # pick a random word from the histogram weighted by frequency
     random_word = random.choices(
-        list(words_histogram.keys()),
-        weights=words_histogram.values(),
-        k=1
+        list(words_histogram["filled"].keys()),
+        weights=words_histogram["filled"].values(),
+        k=1,
     )[0]
 
     return random_word
+
 
 def generate_sentence(source_text, number):
     """
@@ -26,10 +35,10 @@ def generate_sentence(source_text, number):
 
 
 if __name__ == "__main__":
-    sentence = "./data/sample.txt"
+    text = read_file("./data/sample.txt")
     words_frequency = {}
     for _ in range(10000):
-        generated_word = generate_word(sentence)
+        generated_word = generate_word(text)
         if generated_word in words_frequency:
             words_frequency[generated_word] += 1
         else:

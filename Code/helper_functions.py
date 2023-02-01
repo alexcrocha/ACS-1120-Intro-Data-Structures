@@ -1,5 +1,6 @@
 import re
 
+
 def read_file(file_name):
     """
     Reads given source file and returns list of words

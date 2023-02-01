@@ -7,9 +7,8 @@ def dictogram(source_text):
     Takes a source_text argument and returns a histogram of all words and the number of times they appear.
     """
     histogram = {}
-    list_of_words = read_file(source_text)
-    for word in list_of_words:
-        histogram[word] = list_of_words.count(word)
+    for word in source_text:
+        histogram[word] = source_text.count(word)
     return histogram
 
 
