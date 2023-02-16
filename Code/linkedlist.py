@@ -53,7 +53,7 @@ class LinkedList:
     def length(self):
         """Return the length of this linked list by traversing its nodes.
         TODO: Running time: O(n) Why and under what conditions?"""
-        # TODO: Loop through all nodes and count one for each
+        # Loop through all nodes and count one for each
         count = 0
         for item in self.items():
             count += 1
@@ -86,29 +86,32 @@ class LinkedList:
             node.next = self.head
             self.head = node
 
-    def find(self, matcher):
+    def find(self, item):
         """Return an item from this linked list if it is present.
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # Loop through all nodes to find item, if present return True otherwise False
 
-        # def find_next(current_node):
-        #     if current_node is None:
-        #         return False
-        #     elif matcher(current_node.data) is True:
-        #         return True
-        #     else:
-        #         return find_next(current_node.next)
-
         def find_next(current_node):
             if current_node is None:
-                return None
-            elif matcher(current_node.data) is True:
-                return current_node
+                return False
+            elif current_node.data == item:
+                return True
             else:
                 return find_next(current_node.next)
+        return find_next(self.head) if find_next(self.head) is not None else False
 
-        return find_next(self.head).data if find_next(self.head) is not None else None
+        # To pass old linkedlist_test.py tests:
+        # def find(self, matcher):
+        # def find_next(current_node):
+        #     if current_node is None:
+        #         return None
+        #     elif matcher(current_node.data) is True:
+        #         return current_node
+        #     else:
+        #         return find_next(current_node.next)
+        # return find_next(self.head).data if find_next(self.head) is not None else None
+
 
 
     def delete(self, item):
