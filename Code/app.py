@@ -5,7 +5,7 @@ from sample_dict import generate_markov
 
 app = Flask(__name__)
 
-text = read_file("./data/sample.txt")
+text = read_file("./data/messenger.txt")
 
 # TODO: Initialize your histogram, hash table, or markov chain here.
 # Any code placed here will run only once, when the server starts.
