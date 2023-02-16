@@ -101,8 +101,8 @@ class LinkedList:
                 return find_next(current_node.next)
         return find_next(self.head) if find_next(self.head) is not None else False
 
-        # To pass old linkedlist_test.py tests:
-        # def find(self, matcher):
+    # To pass old linkedlist_test.py tests:
+    # def find(self, matcher):
         # def find_next(current_node):
         #     if current_node is None:
         #         return None
@@ -147,12 +147,11 @@ class LinkedList:
         # Hint: raise ValueError('Item not found: {}'.format(item))
 
     def replace(self, item_being_replaced, item_to_replace_with):
-        found = False
         node = self.head
-        while found is False and node.next is not None:
+        while node is not None:
             if node.data == item_being_replaced:
                 node.data = item_to_replace_with
-                found = True
+                return
             node = node.next
 
 
