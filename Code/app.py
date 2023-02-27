@@ -1,7 +1,8 @@
 """Main script, uses other modules to generate sentences."""
 from flask import Flask, request, render_template
 from helper_functions import read_file
-from sample_dict import generate_markov
+# from sample_dict import generate_markov
+from sample_dict import genereate_n_order_markov
 
 app = Flask(__name__)
 
@@ -16,7 +17,7 @@ def home():
     """Route that returns a web page containing the generated text."""
     num_of_sentences = int(request.args.get("num")) if request.args.get("num") else 1
 
-    context = {"sentence": generate_markov(text, num_of_sentences)}
+    context = {"sentence": genereate_n_order_markov(text, num_of_sentences, 2)}
 
     return render_template("index.html", **context)
 
