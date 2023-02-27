@@ -6,6 +6,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tweet Generator</title>
 </head>
+<style type="text/css">
+  html {
+    height: 100%;
+  }
+
+  body {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #282c34;
+    text-align: center;
+    font-family: Gothica;
+    font-size: 20px;
+    color: white;
+  }
+
+  blockquote {
+    margin: 0 0 20px;
+    padding: 10px 20px;
+    max-width: 75%;
+    font-size: 1.25em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 17.5px;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+  }
+
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+
+  }
+
+  button:active {
+    background-color: white;
+    color: #282c34;
+  }
+</style>
 <body>
     <blockquote>{{sentence}}</blockquote>
     <button onClick="window.location.reload()">Refresh</button>
