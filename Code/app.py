@@ -1,7 +1,6 @@
 """Main script, uses other modules to generate sentences."""
 from flask import Flask, request, render_template
 from helper_functions import read_file
-# from sample_dict import generate_markov
 from sample_dict import genereate_n_order_markov
 
 app = Flask(__name__)
