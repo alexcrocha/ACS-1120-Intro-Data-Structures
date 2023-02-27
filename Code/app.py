@@ -7,6 +7,7 @@ from sample_dict import genereate_n_order_markov
 app = Flask(__name__)
 
 text = read_file("./data/sample.txt")
+text = read_file("./data/sample2.txt")
 
 # TODO: Initialize your histogram, hash table, or markov chain here.
 # Any code placed here will run only once, when the server starts.
